@@ -1,0 +1,4 @@
+- name: docker-ce.repo
+  copy: src=docker-ce.repo dest=/etc/yum.repos.d/docker-ce.repo
+- name: update cache
+  yum: update_cache=yes

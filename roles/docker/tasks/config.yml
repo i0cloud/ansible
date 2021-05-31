@@ -1,0 +1,3 @@
+- name: config file
+  copy: src=daemon.json dest=/etc/docker/daemon.json
+  notify: restart service
