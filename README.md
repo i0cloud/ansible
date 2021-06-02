@@ -11,5 +11,5 @@ ansible-playbook --check *.yml
 执行Ansible剧本：
 
 ```
-aansible-playbook *.yml
+ansible-playbook *.yml
 ```
