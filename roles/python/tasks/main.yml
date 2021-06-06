@@ -1,0 +1,6 @@
+- include: rely.yml
+- include: create_dir.yml
+- include: download.yml
+- include: unzip.yml
+- include: compile.yml
+- include: links.yml

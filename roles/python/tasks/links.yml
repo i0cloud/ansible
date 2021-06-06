@@ -1,0 +1,10 @@
+- name: "创建python3软链接"
+  file:
+    path: /usr/bin/python3
+    state: link
+    src: /usr/local/python3/bin/python3
+- name: "创建pip3软链接"
+  file:
+    path: /usr/bin/pip3
+    state: link
+    src: /usr/local/python3/bin/pip3

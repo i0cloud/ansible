@@ -1,0 +1,6 @@
+- name: "解压python3压缩包"
+  unarchive: 
+    src: /tmp/Python-{{ VERSION }}.tar.xz
+    copy: no
+    dest: /usr/local/python3
+    mode: 0755

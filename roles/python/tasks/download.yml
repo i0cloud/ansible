@@ -1,0 +1,2 @@
+- name: '下载python3压缩包'
+  get_url: url=https://www.python.org/ftp/python/{{ VERSION }}/Python-{{ VERSION }}.tar.xz dest=/tmp/

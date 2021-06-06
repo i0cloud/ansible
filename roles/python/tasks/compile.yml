@@ -1,0 +1,2 @@
+- name: "编译"
+  shell: chdir=/usr/local/python3/Python-{{ VERSION }} ./configure --prefix=/usr/local/python3 && make && make install

@@ -1,0 +1,2 @@
+- name: "创建python3安装目录"
+  file: path=/usr/local/python3 state=directory

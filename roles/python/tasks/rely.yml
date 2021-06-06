@@ -1,0 +1,13 @@
+- name: "安装依赖"
+  yum: 
+    name: 
+      - zlib-devel
+      - bzip2-devel
+      - openssl-devel
+      - ncurses-devel
+      - sqlite-devel
+      - readline-devel
+      - tk-devel
+      - libffi-devel
+      - gcc
+      - make
