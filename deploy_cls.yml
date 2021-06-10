@@ -1,0 +1,7 @@
+---
+- hosts: cls
+  remote_user: root
+
+  roles:
+    - docker
+    - kubernetes

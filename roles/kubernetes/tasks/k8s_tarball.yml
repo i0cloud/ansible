@@ -1,0 +1,12 @@
+- name: 下载kubernetes二进制压缩包
+  get_url: 
+    url: https://storage.googleapis.com/kubernetes-release/release/{{ K8S_VERSION }}/kubernetes-server-linux-amd64.tar.gz
+    dest: /tmp/
+    force: no
+  #copy: src=kubernetes-server-linux-amd64.tar.gz dest=/tmp
+- name: 解压kubernetes二进制包
+  unarchive: 
+    src: /tmp/kubernetes-server-linux-amd64.tar.gz
+    copy: no
+    dest: /tmp
+    mode: 0755

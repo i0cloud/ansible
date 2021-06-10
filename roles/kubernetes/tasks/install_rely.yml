@@ -1,0 +1,2 @@
+- name: 安装依赖
+  yum: name=conntrack,ipvsadm,ipset,sysstat,curl,iptables,libseccomp

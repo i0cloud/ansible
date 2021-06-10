@@ -1,0 +1,25 @@
+- name: 下载etcd二进制压缩包
+  get_url: 
+    url: https://mirrors.huaweicloud.com/etcd/{{ ETCD_VERSION }}/etcd-{{ ETCD_VERSION }}-linux-amd64.tar.gz
+    dest: /tmp/
+    force: no
+  when: ansible_facts.default_ipv4.address == '192.168.3.10'
+- name: 解压etcd二进制包
+  unarchive: 
+    src: /tmp/etcd-{{ ETCD_VERSION }}-linux-amd64.tar.gz
+    copy: no
+    dest: /tmp
+    mode: 0755
+  when: ansible_facts.default_ipv4.address == '192.168.3.10'
+- name: 移动etcd到/usr/bin目录
+  shell: cp /tmp/etcd-{{ ETCD_VERSION }}-linux-amd64/etcd* /usr/bin/
+  when: ansible_facts.default_ipv4.address == '192.168.3.10'
+- name: 设置etcd的systemd服务配置文件
+  copy: src=etcd.service dest=/usr/lib/systemd/system mode=0644
+  when: ansible_facts.default_ipv4.address == '192.168.3.10'
+- name: 创建etcd数据保存目录
+  file: path=/var/lib/etcd state=directory
+  when: ansible_facts.default_ipv4.address == '192.168.3.10'
+- name: 启动etcd并加入开机启动
+  service: name=etcd state=started enabled=yes
+  when: ansible_facts.default_ipv4.address == '192.168.3.10'

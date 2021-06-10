@@ -1,0 +1,9 @@
+- name: 设置kube-controller-manager的systemd服务配置文件
+  copy: src=kube-controller-manager.service dest=/usr/lib/systemd/system mode=0644
+  when: ansible_facts.default_ipv4.address == '192.168.3.10'
+- name: 添加kube-controller-manager的启动参数
+  copy: src=controller-manager dest=/etc/kubernetes mode=0644
+  when: ansible_facts.default_ipv4.address == '192.168.3.10'
+- name: 启动kube-controller-manager服务并加入开机启动
+  service: name=kube-controller-manager state=started enabled=yes
+  when: ansible_facts.default_ipv4.address == '192.168.3.10'
