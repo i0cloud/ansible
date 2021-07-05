@@ -1,7 +1,7 @@
 ---
-- hosts: cls
+- hosts: cluster
   remote_user: root
 
   roles:
     - docker
-    - kubernetes
+    - k8s-kubeadm

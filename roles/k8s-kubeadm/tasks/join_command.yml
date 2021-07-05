@@ -1,0 +1,9 @@
+- name: Copy join_base.sh
+  copy: src=join_base.sh dest=/tmp/join_base.sh mode=744
+  when: ansible_facts.default_ipv4.address == (MASTER_IP)
+- name: Print in join_base.sh
+  shell: chdir=/tmp kubeadm token create --print-join-command >> join_base.sh
+  when: ansible_facts.default_ipv4.address == (MASTER_IP)
+- name: Fetch join_base.sh
+  fetch: src=/tmp/join_base.sh dest=/tmp/ flat=yes
+  when: ansible_facts.default_ipv4.address == (MASTER_IP)

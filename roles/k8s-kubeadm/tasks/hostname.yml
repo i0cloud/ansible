@@ -1,0 +1,9 @@
+- name: Master hostname
+  shell: hostnamectl set-hostname master
+  when: ansible_facts.default_ipv4.address == (MASTER_IP)
+- name: Node-1 hostname
+  shell: hostnamectl set-hostname node-1
+  when: ansible_facts.default_ipv4.address == (NODE_1_IP)
+- name: Node-2 hostname
+  shell: hostnamectl set-hostname node-2
+  when: ansible_facts.default_ipv4.address == (NODE_2_IP)

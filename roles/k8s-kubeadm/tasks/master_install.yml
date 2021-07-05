@@ -1,0 +1,9 @@
+- name: Master Yum
+  yum:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - kubelet-{{ VERSION }}
+    - kubeadm-{{ VERSION }}
+    - kubectl-{{ VERSION }}
+  when: ansible_facts.default_ipv4.address == (MASTER_IP)

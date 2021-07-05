@@ -1,0 +1,18 @@
+- include: set_srv.yml
+- include: repo.yml
+- include: hostname.yml
+- include: hosts.yml
+
+# master运行
+- include: master_install.yml
+- include: init_cluster.yml
+- include: run_kubectl.yml
+- include: join_command.yml
+- include: install_weave.yml
+
+# node运行
+- include: node_install.yml
+- include: node_join.yml
+
+# kubelet加入开机启动
+- include: enabled_kubelet.yml

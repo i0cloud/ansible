@@ -1,0 +1,4 @@
+- name: kubernetes.repo
+  copy: src=kubernetes.repo dest=/etc/yum.repos.d/kubernetes.repo
+- name: update cache
+  yum: update_cache=yes

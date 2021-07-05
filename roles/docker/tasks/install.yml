@@ -1,2 +1,2 @@
 - name: install docker-ce
-  yum: name=docker-ce
+  yum: name=docker-ce-{{ VERSION }}
