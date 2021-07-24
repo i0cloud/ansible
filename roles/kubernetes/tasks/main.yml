@@ -1,15 +1,19 @@
 # 所有节点执行
+- include: hostname.yml
+- include: hosts.yml
 - include: install_rely.yml
 - include: set_srv.yml
 - include: k8s_tarball.yml
-- include: etc-k8s_dir.yml
+- include: k8s_dir.yml
 - include: kubeconfig.yml
+
 # 控制节点执行
 - include: etcd_service.yml
 - include: move_k8s_master.yml
 - include: kube-apiserver_service.yml
 - include: kube-controller-manager_service.yml
 - include: kube-scheduler_service.yml
+
 # 工作节点执行
 - include: move_k8s_node.yml
 - include: kubelet_service.yml

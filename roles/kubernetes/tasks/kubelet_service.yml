@@ -1,12 +1,14 @@
+- name: 重新收集facts
+  gather_facts: parallel=true
 - name: 设置kubelet的systemd服务配置文件
   copy: src=kubelet.service dest=/usr/lib/systemd/system mode=0644
-  when: ansible_facts.default_ipv4.address != '192.168.3.10'
+  when: ansible_facts.default_ipv4.address != (MASTER_IP)
 - name: 创建kubelet数据目录
   file: path=/var/lib/kubelet state=directory
-  when: ansible_facts.default_ipv4.address != '192.168.3.10'
+  when: ansible_facts.default_ipv4.address != (MASTER_IP)
 - name: 添加kubelet的启动参数
   template: src=kubelet.j2 dest=/etc/kubernetes/kubelet
-  when: ansible_facts.default_ipv4.address != '192.168.3.10'
+  when: ansible_facts.default_ipv4.address != (MASTER_IP)
 - name: 启动kubelet服务并加入开机启动
   service: name=kubelet state=started enabled=yes
-  when: ansible_facts.default_ipv4.address != '192.168.3.10'
+  when: ansible_facts.default_ipv4.address != (MASTER_IP)
